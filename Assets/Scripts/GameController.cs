@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class GameController : MonoBehaviour
             health = 3;
             enemiesKilled = 0;
             instance = this;
+            SceneManager.sceneLoaded += OnSceneLoaded;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -27,23 +29,21 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        health = 3;
-        enemiesKilled = 0;
-    }
-
-    void Update()
-    {
-        
+        playerIsHurt = false;
     }
 
     public void PlayerDamaged()
     {
-        if (health > 0)
+        if (health > 0 && !playerIsHurt)
         {
             health--;
             playerIsHurt = true;
         }
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    
 }

@@ -24,7 +24,7 @@ public class MovingPlatformController : MonoBehaviour
             direction = (direction + 180f) % 360f;
             movingForward = false;
         }
-        else if (Vector3.Distance(startPosition, transform.position) <= 0.01f && !movingForward)
+        else if (Vector3.Distance(startPosition, transform.position) <= 0.1f && !movingForward)
         {
             direction = (direction + 180f) % 360f;
             movingForward = true;

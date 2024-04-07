@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class KillZoneController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
-    public AudioSource fallAudio;
+    public AudioSource hitAudio;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            fallAudio.Play();
-            StartCoroutine(UpdateController(fallAudio));
+            hitAudio.Play();
+            StartCoroutine(UpdateController(hitAudio));
         }
     }
 
@@ -27,4 +25,3 @@ public class KillZoneController : MonoBehaviour
         GameController.instance.PlayerDamaged();
     }
 }
-
