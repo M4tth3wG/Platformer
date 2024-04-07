@@ -5,14 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class FinishFlagController : MonoBehaviour
 {
-    public GameObject gameController;
+    public AudioSource levelCompleteAudio;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            // TODO gameControlller.nextLevel
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            levelCompleteAudio.Play();
+            StartCoroutine(UpdateController(levelCompleteAudio));
         }
+    }
+
+    private IEnumerator UpdateController(AudioSource audio)
+    {
+        while (audio.isPlaying)
+        {
+            yield return null;
+        }
+
+        GameController.instance.NextLevel();
     }
 }
