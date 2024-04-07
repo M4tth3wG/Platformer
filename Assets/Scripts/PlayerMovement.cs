@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
 
+    public AudioSource jumpAudio;
+    public AudioSource runAudio;
+
     void Update()
     {
         rigidBody.velocity = new Vector2(horizontal * speed, rigidBody.velocity.y);
@@ -34,10 +37,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-
         if (context.performed && IsGrounded())
         {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpingPower);
+            OnJumpAudio();
         }
 
         if (context.canceled && rigidBody.velocity.y > 0f)
@@ -62,6 +65,16 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+    }
+
+    public void OnJumpAudio()
+    {
+        jumpAudio.Play();
+    }
+
+    public void OnMoveAudio()
+    {
+        runAudio.Play();
     }
 
 }
