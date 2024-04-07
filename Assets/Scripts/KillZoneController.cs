@@ -13,6 +13,7 @@ public class KillZoneController : MonoBehaviour
         if (other.tag == "Player")
         {
             fallAudio.Play();
+            GameController.instance.PlayerDamaged();
 
             StartCoroutine(ReloadWithAudio(fallAudio));
         }

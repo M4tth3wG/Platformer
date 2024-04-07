@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallAudio: {fileID: -1433189906617754746}
+  gameController: {fileID: 5552806056293974599, guid: b63b1cec6e8ec68438fd92449613f332, type: 3}
 --- !u!82 &-1433189906617754746
 AudioSource:
   m_ObjectHideFlags: 0
