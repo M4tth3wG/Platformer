@@ -3847,7 +3847,7 @@ GameObject:
   - component: {fileID: 1200026485}
   m_Layer: 3
   m_Name: StandardPlatforms
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5006,7 +5006,7 @@ GameObject:
   - component: {fileID: 1323965337}
   m_Layer: 3
   m_Name: PassThroughPlatforms
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6597,7 +6597,7 @@ GameObject:
   - component: {fileID: 1789656226}
   m_Layer: 3
   m_Name: MovingPlatforms
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

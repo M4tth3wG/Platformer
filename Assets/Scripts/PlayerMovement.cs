@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D rigidBody;
     public Transform groundCheck;
+    public Transform firePoint;
     public LayerMask groundLayer;
     public Animator animator;
+    public GameObject bulletPrefab;
 
     private float horizontal;
     private float speed = 8f;
@@ -57,14 +59,21 @@ public class PlayerMovement : MonoBehaviour
     private void Flip()
     {
         isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
+
+        transform.Rotate(0, 180f, 0);
     }
 
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+    }
+
+    public void Shoot(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
     }
 
     public void OnJumpAudio()

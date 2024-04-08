@@ -32,6 +32,12 @@ public class GameController : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         playerIsHurt = false;
+
+        if (scene.name == "GameOver")
+        {
+            HUD_Controller.instance.audioSource.Pause();
+            Destroy(HUD_Controller.instance.gameObject);
+        }
     }
 
     public void PlayerDamaged()

@@ -12,6 +12,7 @@ public class FinishFlagController : MonoBehaviour
         if (other.tag == "Player")
         {
             levelCompleteAudio.Play();
+            other.attachedRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
             StartCoroutine(UpdateController(levelCompleteAudio));
         }
     }

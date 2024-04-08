@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HUD_Controller : MonoBehaviour
 {
     public static HUD_Controller instance;
-    [SerializeField] AudioSource audioSource;
+    public AudioSource audioSource;
 
     public Slider slider;
     public Toggle muteToggle;
