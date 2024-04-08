@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             Destroy(collision.gameObject);
+            Destroy(gameObject);
             GameController.instance.enemiesKilled += 1;
         }
         else if (collision.tag == "Ground")
